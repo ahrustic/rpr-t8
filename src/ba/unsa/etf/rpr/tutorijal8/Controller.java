@@ -19,12 +19,21 @@ public class Controller implements Initializable {
     public TextField searchBox;
     public ListView list;
     private ObservableList fileList = FXCollections.observableArrayList();
-
+    private Pretraga pretraga;
 
     public void onTrazi(ActionEvent actionEvent) {
+        pretraga = new Pretraga(this);
+        fileList.clear();
+
+        Thread pretragaThread = new Thread(pretraga);
+        pretragaThread.start();
+        prekidacZaPretrazivanjeBtn(true);
     }
 
     public void onPrekini(ActionEvent actionEvent) {
+        System.out.println("Prekid!");
+        pretraga.stop();
+        prekidacZaPretrazivanjeBtn(false);
     }
 
     @Override
@@ -38,6 +47,7 @@ public class Controller implements Initializable {
     }
 
     public void prekidacZaPretrazivanjeBtn(boolean vrijednost) {
-
+        traziBtn.setDisable(vrijednost);
+        prekiniBtn.setDisable(!vrijednost);
     }
 }
