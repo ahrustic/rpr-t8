@@ -34,10 +34,8 @@ public class Pretraga implements Runnable {
         pretraga = true;
         try{
             poredi(dir);
-        }catch (NullPointerException greska){
-            System.out.println("Nista nije pronadeno!");
-        } catch (Exception e) {
-            e.printStackTrace();
+        }catch (Exception greska){
+            System.out.println(greska);
         }
         pretraga = false;
         Platform.runLater(()->controller.prekidacZaPretrazivanjeBtn(false));
