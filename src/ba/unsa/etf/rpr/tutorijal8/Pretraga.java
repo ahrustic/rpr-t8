@@ -28,7 +28,7 @@ public class Pretraga implements Runnable {
     public void run() {
         if(controller.searchBox.getText().trim().isEmpty()){
             System.out.print("Nista nije pronadeno!");
-            Platform.runLater(() -> controller.prekidacZaPretrazivanjeBtn(false));
+            Platform.runLater(() -> controller.prekidacZaPretrazivanje(false));
         return;
         }
         pretraga = true;
@@ -38,7 +38,7 @@ public class Pretraga implements Runnable {
             System.out.println(greska);
         }
         pretraga = false;
-        Platform.runLater(()->controller.prekidacZaPretrazivanjeBtn(false));
+        Platform.runLater(()->controller.prekidacZaPretrazivanje(false));
 
         System.out.println("Pretraga zavrsena!");
     }
