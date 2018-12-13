@@ -92,11 +92,12 @@ public class Formular implements Initializable {
                 }
             }
         });
-
+        if (postanski != null){
         postanski.focusedProperty().addListener((obs, oldVal, newVal) -> {
             if(!newVal)
                 validanPostanski();
         });
+        }
     }
 
     private boolean daLiJePostanskiValidan() {
