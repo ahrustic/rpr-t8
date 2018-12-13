@@ -4,12 +4,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,13 +35,13 @@ public class Controller implements Initializable {
 
         Thread pretragaThread = new Thread(pretraga);
         pretragaThread.start();
-        prekidacZaPretrazivanjeBtn(true);
+        prekidacZaPretrazivanje(true);
     }
 
     public void onPrekini(ActionEvent actionEvent) {
         System.out.println("Prekid!");
         pretraga.stop();
-        prekidacZaPretrazivanjeBtn(false);
+        prekidacZaPretrazivanje(false);
     }
 
     @Override
@@ -46,8 +54,34 @@ public class Controller implements Initializable {
         return fileList;
     }
 
-    public void prekidacZaPretrazivanjeBtn(boolean vrijednost) {
+    public void prekidacZaPretrazivanje(boolean vrijednost) {
         traziBtn.setDisable(vrijednost);
         prekiniBtn.setDisable(!vrijednost);
+    }
+
+
+    private void otvoriFile() {
+        try {
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("formular.fxml"));
+            stage.setTitle("Formular");
+            stage.setScene(new Scene(root, 400, 200));
+            stage.initOwner(list.getScene().getWindow());
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void otvori(MouseEvent mouseEvent) {
+            ObservableList file = list.getSelectionModel().getSelectedItems();
+            if (file == null){
+                System.out.println("Nista nije izabrano!");
+            }
+            else {
+                otvoriFile();
+            }
     }
 }

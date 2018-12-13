@@ -8,7 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="Infinity" maxWidth="Infinity" minHeight="320.0" minWidth="480.0" prefHeight="320" prefWidth="480" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal8.Controller">
+<VBox maxHeight="Infinity" maxWidth="Infinity" minHeight="320.0" minWidth="480.0" prefHeight="320" prefWidth="480" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal8.Controller">
+    
+
     <children>
         <HBox alignment="CENTER_LEFT">
             <children>
@@ -38,7 +40,7 @@
             </padding>
         </HBox>
 
-        <ListView fx:id="list" maxHeight="Infinity" maxWidth="Infinity" VBox.vgrow="ALWAYS" />
+        <ListView fx:id="list" maxHeight="Infinity" maxWidth="Infinity" onMouseClicked="#otvori" VBox.vgrow="ALWAYS" />
     </children>
     <padding>
         <Insets bottom="8.0" left="8.0" right="8.0" top="2.0" />
