@@ -14,6 +14,10 @@ public class Main extends Application {
         primaryStage.setTitle("Pretraga datoteka");
         primaryStage.setScene(new Scene(root, 450, 300));
         primaryStage.show();
+
+        primaryStage.setOnHiding((event) -> {
+            System.exit(0);
+        });
     }
 
 
