@@ -65,7 +65,7 @@ public class Controller implements Initializable {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("formular.fxml"));
             stage.setTitle("Formular");
-            stage.setScene(new Scene(root, 400, 200));
+            stage.setScene(new Scene(root, 317, 200));
             stage.initOwner(list.getScene().getWindow());
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setResizable(false);

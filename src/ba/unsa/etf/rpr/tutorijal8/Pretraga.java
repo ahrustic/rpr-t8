@@ -35,7 +35,7 @@ public class Pretraga implements Runnable {
         try{
             poredi(dir);
         }catch (Exception greska){
-            System.out.println(greska);
+            //System.out.println(greska);
         }
         pretraga = false;
         Platform.runLater(()->controller.prekidacZaPretrazivanje(false));
